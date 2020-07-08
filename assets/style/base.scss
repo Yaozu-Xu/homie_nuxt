@@ -1,0 +1,52 @@
+$ink-blue: #2f495d;
+$light-grey: #606f7b;
+$light-blue: rgb(47, 158, 242);
+$border-shadow: rgba(25, 25, 25, 0.1);
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Microsoft YaHei', 'Hiragino Sans GB', 'Arail';
+  margin: 0;
+}
+
+ul,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+em,
+i {
+  font-style: normal;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container-fluid{
+  padding: 0;
+}
+
+.nav-link {
+  color: $ink-blue !important;
+}
+.nav-link:hover {
+  color: $light-blue !important;
+}

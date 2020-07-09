@@ -1,28 +1,30 @@
 <template>
   <b-container fluid>
-    <Header :user="user"></Header>
+    <Header :user="user" />
     <BottomMenu />
-    <b-container fluid class="d-flex">
+    <b-container fluid class="main flex-md-row">
       <AsideButton />
-      <AsideBar :categories="category"></AsideBar>
+      <AsideBar :categories="category" />
+      <ArticleContainer />
     </b-container>
   </b-container>
 </template>
 
 <script>
-// eslint-disable-next-line no-unused-vars
 import { UserApi, CategoryApi, PublishApi } from '~/apis'
 import Header from '~/components/common/Header'
 import BottomMenu from '~/components/common/BottomMenu'
 import AsideBar from '~/components/home/AsideBar'
 import AsideButton from '~/components/home/AsideButton'
+import ArticleContainer from '~/components/home/ArticleContainer'
 
 export default {
   components: {
     Header,
     BottomMenu,
     AsideBar,
-    AsideButton
+    AsideButton,
+    ArticleContainer
   },
 
   async asyncData(context) {
@@ -30,10 +32,16 @@ export default {
     const userName = context.params.name
     const user = await UserApi.getUser(axios, userName)
     const category = await CategoryApi.getOnesCategory(axios, user._id)
-    // const articles = await PublishApi.getOnesAriticles(axios, user._id)
-    // eslint-disable-next-line no-console
-    // console.log(articles)
-    return { user, category: category.data }
+    const articles = await PublishApi.getOnesAriticles(axios, user._id)
+    console.log(articles.data)
+    return { user, category: category.data, articles: articles.data }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.main {
+  display: flex;
+  flex-direction: column;
+}
+</style>

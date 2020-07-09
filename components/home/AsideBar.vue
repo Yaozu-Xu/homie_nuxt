@@ -4,6 +4,7 @@
       { 'aside-bar-on-sm': getAsideShow },
       'aside-bar',
       'align-items-md-start',
+      'd-md-flex',
       'flex-md-row'
     ]"
   >
@@ -70,12 +71,13 @@ export default {
 .aside-bar-on-sm {
   background-color: #f8fafc;
   margin-top: 1px;
-}
-.aside-bar {
-  display: flex;
+  display: flex !important;
   flex: 1;
   flex-direction: column;
   align-items: center;
+}
+.aside-bar {
+  display: none;
   ul {
     display: flex;
     flex-direction: column;

@@ -21,5 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.article-area{
+    z-index: 1;
+    top: 10rem;
+}
 </style>

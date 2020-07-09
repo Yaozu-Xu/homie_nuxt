@@ -75,8 +75,13 @@ export default {
   flex: 1;
   flex-direction: column;
   align-items: center;
+  // made aside bar upper on other div
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .aside-bar {
+  z-index: 998;
   display: none;
   ul {
     display: flex;

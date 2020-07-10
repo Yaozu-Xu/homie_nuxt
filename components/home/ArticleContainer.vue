@@ -1,5 +1,5 @@
 <template>
-    <b-container class="article-area">
+    <b-container class="article-area mx-auto">
         <b-container class="article-container">
             <h2>文章标题</h2>
             <b-row class="article-details">
@@ -21,8 +21,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article-area{
+.article-area {
     z-index: 1;
-    top: 10rem;
+    .article-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 </style>

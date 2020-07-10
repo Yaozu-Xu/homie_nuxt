@@ -50,3 +50,9 @@ a {
 .nav-link:hover {
   color: $light-blue !important;
 }
+
+.visible-lg {
+  @media screen and (min-width: 768px) {
+    visibility: visible !important;
+  }
+}

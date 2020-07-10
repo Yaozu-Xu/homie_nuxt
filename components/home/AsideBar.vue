@@ -1,11 +1,9 @@
 <template>
   <b-navbar
     :class="[
-      { 'aside-bar-on-sm': getAsideShow },
+      { 'aside-bar-mobile': getAsideShow },
       'aside-bar',
-      'align-items-md-start',
-      'd-md-flex',
-      'flex-md-row'
+      'visible-lg'
     ]"
   >
     <b-navbar-nav>
@@ -67,22 +65,20 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/style/base.scss";
-
-.aside-bar-on-sm {
+.aside-bar-mobile {
   background-color: #f8fafc;
   margin-top: 1px;
-  display: flex !important;
-  flex: 1;
+  width: 100% !important;
+  visibility: visible !important;
   flex-direction: column;
   align-items: center;
-  // made aside bar upper on other div
-  position: absolute;
-  left: 0;
-  right: 0;
 }
 .aside-bar {
   z-index: 998;
-  display: none;
+  visibility: hidden;
+  width: 20%;
+  transition: width .5s, background-color .5s;
+  position: fixed;
   ul {
     display: flex;
     flex-direction: column;

@@ -1,32 +1,65 @@
 <template>
-    <b-container class="article-area mx-auto">
-        <b-container class="article-container">
-            <h2>文章标题</h2>
-            <b-row class="article-details">
-                <b-col></b-col>
-                <b-col></b-col>
-                <b-col></b-col>
-            </b-row>
-            <b-container>
-                asdasdasdasdasdas
-            </b-container>
-        </b-container>
+  <b-container class="article-area mt-5">
+    <b-container class="article-container pl-0" v-for="(article, index1) in articles" :key="index1">
+      <h1>{{ article.articleName }}</h1>
+      <b-row class="w-100 pt-2 pb-2">
+        <b-col>
+          <fa :icon="['fa', 'tag']"/> 
+          <span>{{ article.category.cName }}</span>
+        </b-col>
+        <b-col>
+          <fa :icon="['fa', 'trash']" />
+          <span>删除</span>
+        </b-col>
+        <b-col>
+          <fa :icon="['fa', 'pen']" />
+          <span>编辑</span>
+        </b-col>
+      </b-row>
+      <b-container>asdasdasdasdasdas</b-container>
     </b-container>
+  </b-container>
 </template>
 
 <script>
 export default {
-    
-}
+  props: {
+    articles: {
+      type: Array,
+      required: false
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/style/base.scss";
 .article-area {
-    z-index: 1;
-    .article-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  z-index: 1;
+  .article-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h1 {
+      color: $ink-blue;
     }
+    h1:after {
+      content: " ";
+      width: 80%;
+      display: block;
+      border-width: 2px;
+      border-color: $light-green;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+      border-radius: 0.25rem;
+    }
+    .row {
+      .col {
+        svg {
+          color: $light-grey;
+        }
+      }
+    }
+  }
 }
 </style>

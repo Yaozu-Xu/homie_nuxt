@@ -74,7 +74,7 @@ export default {
   align-items: center;
 }
 .aside-bar {
-  z-index: 998;
+  z-index: 21;
   visibility: hidden;
   width: 20%;
   transition: width .5s, background-color .5s;

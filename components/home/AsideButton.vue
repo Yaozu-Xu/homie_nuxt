@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 button {
   position: absolute;
-  z-index: 999;
+  z-index: 22;
   left: 0;
   margin-top: 1rem;
   width: 2.5rem;

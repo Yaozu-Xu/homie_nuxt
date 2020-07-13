@@ -5,7 +5,7 @@
     <b-container fluid class="main flex-md-row">
       <AsideButton />
       <AsideBar :categories="category" />
-      <ArticleContainer />
+      <ArticleContainer :articles="articles"/>
     </b-container>
   </b-container>
 </template>

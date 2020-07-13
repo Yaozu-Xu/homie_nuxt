@@ -25,8 +25,10 @@ export default {}
 <style lang="scss" scoped>
 @import '~/assets/style/base.scss';
 nav {
+  z-index: 20;
   border-top: 1px solid $border-shadow;
   position: fixed;
+  background: white;
   bottom: 0;
   right: 0;
   left: 0;

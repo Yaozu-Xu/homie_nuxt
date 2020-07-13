@@ -1,8 +1,8 @@
 <template>
-  <b-container class="article-area mt-5">
-    <b-container class="article-container pl-0" v-for="(article, index1) in articles" :key="index1">
+  <b-container class="article-area mt-5 pr-0">
+    <b-container class="article-container pr-0" v-for="(article, index1) in articles" :key="index1">
       <h1>{{ article.articleName }}</h1>
-      <b-row class="w-100 pt-2 pb-2">
+      <b-row class="w-100 pt-2 pb-4">
         <b-col>
           <fa :icon="['fa', 'tag']"/> 
           <span>{{ article.category.cName }}</span>
@@ -16,7 +16,7 @@
           <span>编辑</span>
         </b-col>
       </b-row>
-      <b-container>asdasdasdasdasdas</b-container>
+      <b-container class="pl-0 article-content" v-html="article.content"></b-container>
     </b-container>
   </b-container>
 </template>
@@ -40,6 +40,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-bottom: 3rem;
     h1 {
       color: $ink-blue;
     }

@@ -3,12 +3,14 @@ $light-grey: #606f7b;
 $light-blue: rgb(47, 158, 242);
 $light-green: #00c58e;
 $border-shadow: rgba(25, 25, 25, 0.1);
+$p-color: #2f495e;
 
 * {
   box-sizing: border-box;
 }
 
-*, :after {
+*,
+:after {
   box-sizing: border-box;
   border: 0 solid #e2e8f0;
 }
@@ -19,7 +21,7 @@ html {
 }
 
 body {
-  font-family: 'Microsoft YaHei', 'Hiragino Sans GB', 'Arail';
+  font-family: "Microsoft YaHei", "Hiragino Sans GB", "Arail";
   margin: 0;
 }
 
@@ -34,6 +36,12 @@ h6 {
   padding: 0;
   margin: 0;
 }
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
 li {
   list-style: none;
 }
@@ -46,7 +54,7 @@ a {
   text-decoration: none;
 }
 
-.container-fluid{
+.container-fluid {
   padding: 0;
 }
 
@@ -60,5 +68,44 @@ a {
 .visible-lg {
   @media screen and (min-width: 768px) {
     visibility: visible !important;
+  }
+}
+
+// article display
+.article-content {
+  h2 {
+    font-size: 1.2rem !important;
+    font-weight: 600;
+  }
+  span {
+    font-size: 1.2rem !important;
+  }
+  p {
+    padding-top: 2rem;
+    color: #2f495e !important;
+    line-height: 1.625;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    > span {
+      font-size: 1.2rem !important;
+    }
+  }
+  pre {
+    margin-top: 2rem;
+    display: block;
+    overflow: auto;
+    word-wrap: normal;
+    word-break: normal;
+    padding: 28px 24px;
+    font-size: 1rem;
+    background-color: #f6f6f6;
+    border-radius: 4px;
+    color: #68747f;
+  }
+  ol {
+    padding-inline-start: 2rem;
+  }
+  ul {
+    padding-inline-start: 2rem;
   }
 }

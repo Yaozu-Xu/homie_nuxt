@@ -33,7 +33,6 @@ export default {
     const user = await UserApi.getUser(axios, userName)
     const category = await CategoryApi.getOnesCategory(axios, user._id)
     const articles = await PublishApi.getOnesAriticles(axios, user._id)
-    console.log(articles.data)
     return { user, category: category.data, articles: articles.data }
   }
 }

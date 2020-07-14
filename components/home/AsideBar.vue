@@ -3,6 +3,7 @@
     :class="[
       { 'aside-bar-mobile': getAsideShow },
       'aside-bar',
+      'mt-md-3',
       'visible-lg'
     ]"
   >
@@ -78,7 +79,7 @@ export default {
   visibility: hidden;
   width: 20%;
   transition: width .5s, background-color .5s;
-  position: fixed;
+  position: absolute;
   ul {
     display: flex;
     flex-direction: column;

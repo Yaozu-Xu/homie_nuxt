@@ -34,8 +34,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/style/base.scss";
+@import "~/assets/style/mixin.scss";
 .article-area {
   z-index: 1;
+  @include w-md(60%);
   .article-container {
     display: flex;
     flex-direction: column;

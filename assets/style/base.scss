@@ -73,9 +73,20 @@ a {
 
 // article display
 .article-content {
+  h1{
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: $ink-blue;
+  }
   h2 {
     font-size: 1.2rem !important;
     font-weight: 600;
+    color: $ink-blue;
+  }
+  h3 {
+    font-size: 1.1rem !important;
+    font-weight: 600;
+    color: $ink-blue;
   }
   span {
     font-size: 1.2rem !important;
@@ -97,7 +108,7 @@ a {
     word-wrap: normal;
     word-break: normal;
     padding: 28px 24px;
-    font-size: 1rem;
+    font-size: 1rem !important;
     background-color: #f6f6f6;
     border-radius: 4px;
     color: #68747f;

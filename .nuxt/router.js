@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _f8c8090e = () => interopDefault(import('../pages/publish.vue' /* webpackChunkName: "pages/publish" */))
 const _bf2d29a8 = () => interopDefault(import('../pages/user/_name.vue' /* webpackChunkName: "pages/user/_name" */))
 
 // TODO: remove in Nuxt 3
@@ -22,6 +23,10 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/publish",
+    component: _f8c8090e,
+    name: "publish"
+  }, {
     path: "/user/:name?",
     component: _bf2d29a8,
     name: "user-name"

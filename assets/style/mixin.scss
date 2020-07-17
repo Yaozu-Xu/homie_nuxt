@@ -1,3 +1,5 @@
+@import 'variable.scss';
+
 @mixin avatar-mixin($width: 16px, $height: 16px) {
   .nav-item {
     .nav-link {
@@ -17,6 +19,14 @@
 @mixin w-md($percent) {
   @media screen and (min-width: 768px) {
     width: $percent;
+  }
+}
+
+@mixin border-bottom-color($color: $light-grey) {
+  border-bottom-color: $color;
+
+  [data-color="grey"] & {
+    border-bottom-color: grey
   }
 }
 

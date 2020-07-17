@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~/assets/style/mixin.scss';
 @import '~/assets/style/base.scss';
 .nav-header {

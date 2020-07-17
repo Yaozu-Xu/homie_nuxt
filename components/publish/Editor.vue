@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button @click="this.publish">提交</button>
     <vue-editor
       class="article-content"
       v-if="isClient"
@@ -23,7 +22,16 @@ export default {
       this.$options.components = { VueEditor };
       this.isClient = true;
     }
-    this.content = this.raw;
+  },
+  computed : {
+    content: {
+      get: function(){
+        return this.raw
+      },
+      set: function(newContent){
+        this.$emit('func', newContent)
+      }
+    }
   },
   data() {
     return {
@@ -39,16 +47,10 @@ export default {
       isClient: false
     };
   },
-  methods: {
-    publish() {
-      console.log(this.content);
-    }
-  }
 };
 </script>
 
 <style lang="scss">
-
 pre {
   background-color: #f6f6f6 !important;
   color: #68747f !important;

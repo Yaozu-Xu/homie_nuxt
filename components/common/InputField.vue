@@ -1,6 +1,11 @@
 <template>
-  <ValidationProvider v-slot="{ errors, valid }">
-    <input v-model="value" :class="{ 'error': !valid}" :type="type" :placeholder="placeHolder" />
+  <ValidationProvider v-slot="{ errors, valid }" :rules="rules">
+    <input
+      v-model="value"
+      :class="{ 'error': !valid}"
+      :type="type"
+      :placeholder="placeHolder"
+    />
     <span :class="{'d-none': valid }">{{ errors[0] }}</span>
   </ValidationProvider>
 </template>
@@ -9,7 +14,8 @@
 export default {
   props: {
     placeHolder: String,
-    type: String
+    type: String,
+    rules: String
   },
   data() {
     return {

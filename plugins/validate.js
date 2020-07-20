@@ -12,4 +12,18 @@ extend('required', {
   message: '不能为空'
 })
 
+extend('articleName', (value) => {
+  if(value.length >= 1 && value.length <= 20) {
+    return true
+  }
+  return '文章名长度不得>20'
+})
+
+extend('user', (value) => {
+  if(value.length >= 3 && value.length <= 10) {
+    return true
+  }
+  return '用户名长度必须在3-10之间'
+})
+
 Vue.component('ValidationProvider', ValidationProvider)

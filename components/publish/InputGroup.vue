@@ -1,6 +1,6 @@
 <template>
   <b-container class="input-area">
-    <InputField placeHolder="文章标题" type="email"/>
+    <InputField placeHolder="文章标题" type="text" rules="articleName"/>
   </b-container>
 </template>
 

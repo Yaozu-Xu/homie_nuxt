@@ -39,7 +39,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/font-awesome', '~/plugins/axios'],
+  plugins: ['~/plugins/font-awesome', '~/plugins/axios', '~/plugins/validate'],
   /*
    ** Nuxt.js dev-modules
    */

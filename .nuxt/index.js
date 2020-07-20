@@ -19,6 +19,7 @@ import nuxt_plugin_templatespluginba51e1be_4251f6a8 from 'nuxt_plugin_templatesp
 import nuxt_plugin_axios_352d9c3c from 'nuxt_plugin_axios_352d9c3c' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_fontawesome_47952b5b from 'nuxt_plugin_fontawesome_47952b5b' // Source: ../plugins/font-awesome (mode: 'all')
 import nuxt_plugin_axios_3566aa80 from 'nuxt_plugin_axios_3566aa80' // Source: ../plugins/axios (mode: 'all')
+import nuxt_plugin_validate_c33f42e8 from 'nuxt_plugin_validate_c33f42e8' // Source: ../plugins/validate (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -206,6 +207,10 @@ async function createApp (ssrContext) {
 
   if (typeof nuxt_plugin_axios_3566aa80 === 'function') {
     await nuxt_plugin_axios_3566aa80(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_validate_c33f42e8 === 'function') {
+    await nuxt_plugin_validate_c33f42e8(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

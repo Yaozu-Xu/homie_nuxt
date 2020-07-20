@@ -26,6 +26,7 @@
     "bootstrap-vue": "^2.0.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
+    "vee-validate": "^3.3.7",
     "vue2-editor": "^2.10.2"
   },
   "devDependencies": {

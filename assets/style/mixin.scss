@@ -22,11 +22,4 @@
   }
 }
 
-@mixin border-bottom-color($color: $light-grey) {
-  border-bottom-color: $color;
-
-  [data-color="grey"] & {
-    border-bottom-color: grey
-  }
-}
 

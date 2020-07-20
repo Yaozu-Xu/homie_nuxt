@@ -1,6 +1,6 @@
 <template>
-  <b-container>
-    <InputField />
+  <b-container class="input-area">
+    <InputField placeHolder="文章标题" type="email"/>
   </b-container>
 </template>
 
@@ -14,5 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.input-area {
+  margin-bottom: 1rem;
+}
 </style>

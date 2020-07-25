@@ -1,12 +1,12 @@
 <template>
-  <ValidationProvider v-slot="{ errors, valid }" :rules="rules">
+  <ValidationProvider v-slot="{ errors, failed }" :rules="rules">
     <input
       v-model="value"
-      :class="{ 'error': !valid}"
+      :class="{ 'error': failed }"
       :type="type"
       :placeholder="placeHolder"
     />
-    <span :class="{'d-none': valid }">{{ errors[0] }}</span>
+    <span :class="{'d-none': !failed }">{{ errors[0] }}</span>
   </ValidationProvider>
 </template>
 

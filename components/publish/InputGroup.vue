@@ -1,15 +1,28 @@
 <template>
   <b-container class="input-area">
-    <InputField placeHolder="文章标题" type="text" rules="articleName"/>
+    <ValidationObserver v-slot="{ handleSubmit }">
+      <b-form @submit.prevent="handleSubmit(onSubmit)">
+        <InputField place-holder="文章标题1" type="text" rules="articleName|required"/>
+        <button type="submit">submit</button>
+      </b-form>
+    </ValidationObserver>
   </b-container>
 </template>
 
 <script>
-import InputField from '~/components/common/InputField'
+import InputField from "~/components/common/InputField";
 export default {
-    components: {
-        InputField
+  components: {
+    InputField
+  },
+  data: () => ({
+    email: ''
+  }),
+  methods: {
+    onSubmit() {
+      alert("aa");
     }
+  }
 };
 </script>
 

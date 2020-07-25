@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { ValidationProvider, extend } from 'vee-validate'
+import { ValidationProvider, ValidationObserver, extend } from 'vee-validate'
 import { required, email } from 'vee-validate/dist/rules.umd'
 
 extend('email', {
@@ -9,7 +9,7 @@ extend('email', {
 
 extend('required', {
   ...required,
-  message: '不能为空'
+  message: 'This field is required'
 })
 
 extend('articleName', (value) => {
@@ -27,3 +27,4 @@ extend('user', (value) => {
 })
 
 Vue.component('ValidationProvider', ValidationProvider)
+Vue.component('ValidationObserver', ValidationObserver)

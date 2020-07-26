@@ -1,12 +1,7 @@
 <template>
-  <ValidationProvider v-slot="{ errors, failed }" :rules="rules">
-    <input
-      v-model="value"
-      :class="{ 'error': failed }"
-      :type="type"
-      :placeholder="placeHolder"
-    />
-    <span :class="{'d-none': !failed }">{{ errors[0] }}</span>
+  <ValidationProvider v-slot="{ errors, failed }" :rules="rules" class="d-block mb-3">
+    <input v-model="value" :class="{ 'error': failed }" :type="type" :placeholder="placeHolder" />
+    <span>{{ errors[0] }}</span>
   </ValidationProvider>
 </template>
 
@@ -36,12 +31,10 @@ input {
   border-bottom: 1px solid;
   border-bottom-color: #ccc;
 }
-
 input:focus {
   border-bottom: 2px solid;
   border-bottom-color: $light-blue;
 }
-
 span {
   color: crimson;
 }

@@ -1,8 +1,6 @@
 import Axios from 'axios'
 import defu from 'defu'
 
-const $nuxt = typeof window !== 'undefined' && window['$nuxt']
-
 // Axios.prototype cannot be modified
 const axiosExtra = {
   setBaseURL (baseURL) {
@@ -82,7 +80,10 @@ const setupProgress = (axios) => {
     set: () => { }
   }
 
-  const $loading = () => ($nuxt && $nuxt.$loading && $nuxt.$loading.set) ? $nuxt.$loading : noopLoading
+  const $loading = () => {
+    const $nuxt = typeof window !== 'undefined' && window['$nuxt']
+    return ($nuxt && $nuxt.$loading && $nuxt.$loading.set) ? $nuxt.$loading : noopLoading
+  }
 
   let currentRequests = 0
 
@@ -134,10 +135,12 @@ const setupProgress = (axios) => {
 }
 
 export default (ctx, inject) => {
+  // runtimeConfig
+  const runtimeConfig = ctx.$config && ctx.$config.axios || {}
   // baseURL
   const baseURL = process.browser
-      ? '/'
-      : (process.env._AXIOS_BASE_URL_ || 'http://localhost:3000/')
+    ? (runtimeConfig.browserBaseURL || runtimeConfig.baseURL || '/')
+      : (runtimeConfig.baseURL || process.env._AXIOS_BASE_URL_ || 'http://localhost:3000/')
 
   // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!

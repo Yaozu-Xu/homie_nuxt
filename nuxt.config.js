@@ -5,7 +5,8 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || '',
-    meta: [{
+    meta: [
+      {
         charset: 'utf-8'
       },
       {
@@ -66,6 +67,9 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: { proxy: true },
+  router: {
+    middleware: 'auth'
+  },
   proxy: {
     '/api/': { target: 'http://127.0.0.1:3001', pathRewrite: { '^/api/': '' } }
   },
@@ -74,7 +78,8 @@ export default {
   },
   fontawesome: {
     component: 'fa',
-    imports: [{
+    imports: [
+      {
         set: '@fortawesome/free-solid-svg-icons',
         icons: ['fas']
       },

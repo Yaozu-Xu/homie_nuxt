@@ -2,7 +2,11 @@
   <b-container class="input-area">
     <ValidationObserver v-slot="{ handleSubmit }">
       <b-form @submit.prevent="handleSubmit(onSubmit)">
-        <InputField place-holder="文章标题1" type="text" rules="articleName|required"/>
+        <InputField
+          place-holder="文章标题1"
+          type="text"
+          rules="articleName|required"
+        />
         <button type="submit">submit</button>
       </b-form>
     </ValidationObserver>
@@ -10,7 +14,7 @@
 </template>
 
 <script>
-import InputField from "~/components/common/InputField";
+import InputField from '~/components/common/InputField'
 export default {
   components: {
     InputField
@@ -20,10 +24,10 @@ export default {
   }),
   methods: {
     onSubmit() {
-      alert("aa");
+      alert('aa')
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

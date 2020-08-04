@@ -4,7 +4,11 @@
       <header>Login</header>
       <ValidationObserver>
         <b-form>
-          <InputField place-holder="Email" type="email" rules="email|required" />
+          <InputField
+            place-holder="Email"
+            type="email"
+            rules="email|required"
+          />
           <InputField place-holder="Email" type="text" rules="email|required" />
           <button class="button mt-4 mb-5">Login</button>
         </b-form>
@@ -18,16 +22,19 @@
 </template>
 
 <script>
-import InputField from "~/components/common/InputField";
+import InputField from '~/components/common/InputField'
 export default {
   components: {
     InputField
+  },
+  meta: {
+    authLevel: 0
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/variable.scss";
+@import '~/assets/style/variable.scss';
 .main {
   background: linear-gradient(to right, $soft-pink, $soft-blue);
   height: 100vh;

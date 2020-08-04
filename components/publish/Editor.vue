@@ -18,17 +18,17 @@ export default {
   },
   mounted() {
     if (process.client) {
-      const { VueEditor } = require("vue2-editor");
-      this.$options.components = { VueEditor };
-      this.isClient = true;
+      const { VueEditor } = require('vue2-editor')
+      this.$options.components = { VueEditor }
+      this.isClient = true
     }
   },
-  computed : {
+  computed: {
     content: {
-      get: function(){
+      get: function() {
         return this.raw
       },
-      set: function(newContent){
+      set: function(newContent) {
         this.$emit('func', newContent)
       }
     }
@@ -38,16 +38,16 @@ export default {
       customToolbar: [
         [{ header: [false, 1, 2, 3] }],
         // 列表、有序、多选列表
-        [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
-        ["link", "image", "video"],
+        [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }],
+        ['link', 'image', 'video'],
         // 代码、代码块
-        ["code", "code-block"],
-        ["clean"]
+        ['code', 'code-block'],
+        ['clean']
       ],
       isClient: false
-    };
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -56,4 +56,3 @@ pre {
   color: #68747f !important;
 }
 </style>
-

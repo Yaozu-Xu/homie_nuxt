@@ -18,7 +18,7 @@
           {{ category.cName }}
           <span>
             ({{
-            category.hasOwnProperty('publish') ? category.publish.length : 0
+              category.hasOwnProperty('publish') ? category.publish.length : 0
             }})
           </span>
         </b-nav-item>
@@ -31,7 +31,8 @@
             :key="index2"
             :href="`#item-${article.aid}`"
             class="article-li pl-md-3"
-          >{{ article.aName }}</b-nav-item>
+            >{{ article.aName }}</b-nav-item
+          >
         </b-navbar-nav>
       </div>
     </b-navbar-nav>
@@ -49,23 +50,23 @@ export default {
   data() {
     return {
       currentLi: undefined
-    };
+    }
   },
   computed: {
     getAsideShow() {
-      return this.$store.state.ui.isAsideShow;
+      return this.$store.state.ui.isAsideShow
     }
   },
   methods: {
     show(index) {
-      this.currentLi = this.currentLi === index ? undefined : index;
+      this.currentLi = this.currentLi === index ? undefined : index
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/base.scss";
+@import '~/assets/style/base.scss';
 .aside-bar-mobile {
   background-color: #f8fafc;
   margin-top: 1px;
@@ -78,7 +79,7 @@ export default {
   z-index: 21;
   visibility: hidden;
   width: 20%;
-  transition: width .5s, background-color .5s;
+  transition: width 0.5s, background-color 0.5s;
   position: absolute;
   ul {
     display: flex;

@@ -1,6 +1,15 @@
 <template>
-  <ValidationProvider v-slot="{ errors, failed }" :rules="rules" class="d-block mb-3">
-    <input v-model="value" :class="{ 'error': failed }" :type="type" :placeholder="placeHolder" />
+  <ValidationProvider
+    v-slot="{ errors, failed }"
+    :rules="rules"
+    class="d-block mb-3"
+  >
+    <input
+      v-model="value"
+      :class="{ error: failed }"
+      :type="type"
+      :placeholder="placeHolder"
+    />
     <span>{{ errors[0] }}</span>
   </ValidationProvider>
 </template>
@@ -14,14 +23,14 @@ export default {
   },
   data() {
     return {
-      value: ""
-    };
+      value: ''
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "~/assets/style/variable.scss";
+@import '~/assets/style/variable.scss';
 input {
   display: block;
   width: 100%;

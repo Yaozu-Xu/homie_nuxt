@@ -12,15 +12,15 @@ extend('required', {
   message: 'This field is required'
 })
 
-extend('articleName', (value) => {
-  if(value.length >= 1 && value.length <= 20) {
+extend('articleName', value => {
+  if (value.length >= 1 && value.length <= 20) {
     return true
   }
   return 'length should less than 20'
 })
 
-extend('user', (value) => {
-  if(value.length >= 3 && value.length <= 10) {
+extend('user', value => {
+  if (value.length >= 3 && value.length <= 10) {
     return true
   }
   return 'length should between 3 and 10'

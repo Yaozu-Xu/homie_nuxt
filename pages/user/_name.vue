@@ -5,7 +5,7 @@
     <b-container fluid class="main flex-md-row">
       <AsideButton />
       <AsideBar :categories="category" />
-      <ArticleContainer :articles="articles"/>
+      <ArticleContainer :articles="articles" />
     </b-container>
   </b-container>
 </template>
@@ -26,7 +26,9 @@ export default {
     AsideButton,
     ArticleContainer
   },
-
+  meta: {
+    authLevel: 1
+  },
   async asyncData(context) {
     const axios = context.$axios
     const userName = context.params.name

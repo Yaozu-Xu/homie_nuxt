@@ -8,8 +8,8 @@ export const state = () => ({
 
 export const mutations = {
   USER_STATE(state, userObject, isLogin = true) {
-    state.userName = userObject.user
-    state.uid = userObject.uid
+    state.userName = userObject.username
+    state.uid = userObject._id
     state.isLogin = isLogin
   }
 }

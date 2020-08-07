@@ -5,30 +5,30 @@
 import { UserApi } from '~/apis'
 import { getUid, getRefreshToken, removeStore, setStore } from '~/utils'
 
-export default async ({ route, store, redirect }) => {
+export default async ({ route, store, redirect, $axios }) => {
   const { authLevel } = route.meta.pop()
   switch (authLevel) {
     case 0:
       break
     case 1: {
       const user = route.params.name
-      const userInfo = await UserApi.getUser(user)
+      const userInfo = await UserApi.getUser($axios, user)
       // no that user
       if (!userInfo) {
         redirect({ path: '/login' })
       }
-      const res = await UserApi.checkAuth(userInfo._id)
+      const res = await UserApi.checkAuth($axios, userInfo._id)
       // user login so grant previlage
       if (res.statusCode === 200) {
-        store.commit('USER_STATE', res.user)
+        store.commit('USER_STATE', userInfo)
         break
       } else if (res.expire) {
         setStore('access_token', res.access_token)
-        store.commit('USER_STATE', res.user)
+        store.commit('USER_STATE', userInfo)
         break
       }
       // no login so set state isLogin = false
-      store.commit('USER_STATE', res.user, false)
+      store.commit('USER_STATE', userInfo, false)
       removeStore('access_token')
       break
     }
@@ -40,7 +40,7 @@ export default async ({ route, store, redirect }) => {
         removeStore('access_token')
         redirect({ path: '/login' })
       }
-      const res = await UserApi.checkAuth(uid)
+      const res = await UserApi.checkAuth($axios, uid)
       // auth succeed
       if (res.statusCode === 200) {
         store.commit('USER_STATE', res.user)

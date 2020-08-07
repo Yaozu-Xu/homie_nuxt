@@ -31,6 +31,7 @@ export default {
   },
   async asyncData({ $axios, params, redirect }) {
     const axios = $axios
+    console.log($axios)
     const userName = params.name
     const user = await UserApi.getUser(axios, userName)
     if (!user) {

@@ -1,6 +1,7 @@
 /**
  * 存储localStorage
  */
+import Cookies from 'js-cookie'
 
 export const setStore = (name, content) => {
   if (!name) return
@@ -22,6 +23,12 @@ export const getStore = name => {
  * 删除localStorage
  */
 export const removeStore = name => {
-  if (!name) return
+  if (!getStore(name) || name) {
+    return
+  }
   window.localStorage.removeItem(name)
 }
+
+export const getUid = () => Cookies.get('uid')
+
+export const getRefreshToken = () => Cookies.get('refresh_token')

@@ -29,13 +29,17 @@ export default {
   meta: {
     authLevel: 1
   },
-  async asyncData(context) {
-    const axios = context.$axios
-    const userName = context.params.name
+  async asyncData({ $axios, params, redirect }) {
+    const axios = $axios
+    const userName = params.name
     const user = await UserApi.getUser(axios, userName)
-    const category = await CategoryApi.getOnesCategory(axios, user._id)
-    const articles = await PublishApi.getOnesAriticles(axios, user._id)
-    return { user, category: category.data, articles: articles.data }
+    if (!user) {
+      redirect({ path: '/login' })
+    } else {
+      const category = await CategoryApi.getOnesCategory(axios, user._id)
+      const articles = await PublishApi.getOnesAriticles(axios, user._id)
+      return { user, category: category.data, articles: articles.data }
+    }
   }
 }
 </script>

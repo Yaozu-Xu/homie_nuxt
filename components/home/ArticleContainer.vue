@@ -11,11 +11,11 @@
           <fa :icon="['fa', 'tag']" />
           <span>{{ article.category.cName }}</span>
         </b-col>
-        <b-col>
+        <b-col v-if="isLogin">
           <fa :icon="['fa', 'trash']" />
           <span>删除</span>
         </b-col>
-        <b-col>
+        <b-col v-if="isLogin">
           <fa :icon="['fa', 'pen']" />
           <span>编辑</span>
         </b-col>
@@ -34,6 +34,12 @@ export default {
     articles: {
       type: Array,
       required: false
+    }
+  },
+  computed: {
+    isLogin() {
+      console.log(this.$store.state.isLogin)
+      return this.$store.state.isLogin
     }
   }
 }

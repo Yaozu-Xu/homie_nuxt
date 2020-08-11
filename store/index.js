@@ -7,9 +7,15 @@ export const state = () => ({
 })
 
 export const mutations = {
-  USER_STATE(state, userObject, isLogin = true) {
+  USER_LOGIN(state, userObject) {
     state.userName = userObject.username
     state.uid = userObject._id
-    state.isLogin = isLogin
+    state.isLogin = false
+  },
+
+  USER_LOGOUT(state, userObject) {
+    state.userName = userObject.username
+    state.uid = userObject._id
+    state.isLogin = false
   }
 }

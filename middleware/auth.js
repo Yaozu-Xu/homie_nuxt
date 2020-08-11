@@ -20,15 +20,15 @@ export default async ({ route, store, redirect, $axios }) => {
       const res = await UserApi.checkAuth($axios, userInfo._id)
       // user login so grant previlage
       if (res.statusCode === 200) {
-        store.commit('USER_STATE', userInfo)
+        store.commit('USER_LOGIN', userInfo)
         break
       } else if (res.expire) {
         setStore('access_token', res.access_token)
-        store.commit('USER_STATE', userInfo)
+        store.commit('USER_LOGIN', userInfo)
         break
       }
       // no login so set state isLogin = false
-      store.commit('USER_STATE', userInfo, false)
+      store.commit('USER_LOGOUT', userInfo)
       removeStore('access_token')
       break
     }
@@ -43,14 +43,14 @@ export default async ({ route, store, redirect, $axios }) => {
       const res = await UserApi.checkAuth($axios, uid)
       // auth succeed
       if (res.statusCode === 200) {
-        store.commit('USER_STATE', res.user)
+        store.commit('USER_LOGIN', res.user)
         break
       }
       // auth failed due to token expired
       // so update access_token
       else if (res.expire) {
         setStore('access_token', res.access_token)
-        store.commit('USER_STATE', res.user)
+        store.commit('USER_LOGIN', res.user)
         break
       }
       // auth failed due to invalid token

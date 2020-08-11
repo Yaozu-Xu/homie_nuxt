@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container fluid class="p-0">
     <Header :user="user" />
     <BottomMenu />
     <b-container fluid class="main flex-md-row">

@@ -2,8 +2,8 @@
   <b-container class="main" fluid>
     <b-container class="login-wrapper">
       <header>Login</header>
-      <ValidationObserver>
-        <b-form>
+      <ValidationObserver v-slot="{ handleSubmit }">
+        <b-form @submit.prevent="handleSubmit(onSubmit)">
           <InputField
             place-holder="Email"
             type="email"
@@ -23,12 +23,19 @@
 
 <script>
 import InputField from '~/components/common/InputField'
+// import { UserApi } from '~/apis'
 export default {
   components: {
     InputField
   },
   meta: {
     authLevel: 0
+  },
+  methods: {
+    async onSubmit({ $axios }) {
+      // await UserApi.sendLogin()
+      alert('aa')
+    }
   }
 }
 </script>
@@ -55,6 +62,7 @@ export default {
     }
     button {
       text-align: center;
+      border: 0;
       width: 100%;
       padding: 10px;
       background: linear-gradient(to right, $soft-blue, $soft-pink);
